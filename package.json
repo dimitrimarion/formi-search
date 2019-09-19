@@ -1,0 +1,11 @@
+{
+  "name": "formisearch",
+  "version": "1.0.0",
+  "description": "Search ants species by country.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dimitri Marion",
+  "license": "MIT"
+}
