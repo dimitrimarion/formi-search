@@ -27,49 +27,6 @@ const Search = () => {
     }
   }, [country.isoCode, country.name, countries]);
 
-  const [resultsSpecies, setResultsSpecies] = useState([]);
-  const [species, setSpecies] = useState([]);
-
-  const requestSpecies = () => {
-    fetch(
-      `${URL}/occurrence/search/?datasetKey=13b70480-bd69-11dd-b15f-b8a03c50a862&familyKey=4342&limit=50&country=HU`
-    )
-      .then(response => response.json())
-      .then(data => {
-        //console.log(data);
-        const { results } = data;
-        setSpecies(extractData(results));
-        //console.log(species);
-
-        //navigate("/results", { state: { species: species } });
-      });
-  };
-
-  const extractData = results => {
-    const antsData = results.map(({ key, scientificName, media }) => ({
-      key,
-      scientificName,
-      media
-    }));
-
-    console.log(antsData);
-
-    // Remove results with same species name
-    const uniqueSpecies = antsData.reduce((unique, item) => {
-      if (!unique.length) {
-        return [item];
-      }
-      const { scientificName: uniqueName } = unique[unique.length - 1];
-      const { scientificName: itemName } = item;
-
-      return uniqueName === itemName ? unique : [...unique, item];
-    }, []);
-
-    console.log(uniqueSpecies);
-
-    return uniqueSpecies;
-  };
-
   return (
     <main>
       <section className="hero">
