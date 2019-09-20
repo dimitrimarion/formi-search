@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { Router, Link } from "@reach/router";
 import logo from "../assets/img/logo100x100.png";
 import Search from "./Search";
+import Results from "./Results";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
 
       <Router>
         <Search path="/" />
+        <Results path="/results" />
       </Router>
     </div>
   );
