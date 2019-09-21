@@ -41,10 +41,22 @@ const Results = props => {
 
   return (
     <main className="ant-page">
-      <p>Results page</p>
-      <pre>
-        <code></code>
-      </pre>
+      <section className="ant-result">
+        {species.map(({ key, scientificName, country, media }) => (
+          <div className="ant-card" key={key}>
+            <img
+              src={
+                media ? media[1].identifier.replace("high", "thumbview") : ""
+              }
+              alt={scientificName}
+            />
+            <div className="ant-description">
+              <p className="ant-name">{scientificName}</p>
+              <p>{country}</p>
+            </div>
+          </div>
+        ))}
+      </section>
     </main>
   );
 };

@@ -31,7 +31,7 @@ const Search = () => {
     <main>
       <section className="hero">
         <img src={logo} alt="logo" />
-        <p>Enter a country to find the ants species.</p>
+        <p>Search ants species by country.</p>
       </section>
 
       <section className="search">

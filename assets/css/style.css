@@ -141,6 +141,7 @@ form > button {
   margin: 0 var(--ant-card-margin) 2em var(--ant-card-margin);
   flex: 1 0 var(--ant-card-flex);
   max-width: var(--ant-card-max-width);
+  min-width: var(--ant-card-max-width);
   height: var(--ant-card-height);
 }
 
