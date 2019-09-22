@@ -17,6 +17,7 @@
   --ant-desc-height: 35%;
   --ant-card-margin: 2.5%;
   --ant-card-margin: 2.5%;
+  --ant-font-size: 0.8rem;
 }
 
 body {
@@ -40,6 +41,11 @@ header {
 
 section {
   margin-bottom: 3em;
+}
+
+h1 {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
 }
 
 .nav-menu {
@@ -114,18 +120,6 @@ form > button {
   font-size: calc(1vw + 0.7em);
 }
 
-@media (min-width: 29em) {
-  :root {
-    --search-box-width: 60%;
-    --padding-input: 1em 2em;
-    font-size: 1.125em;
-  }
-
-  form > button {
-    font-size: 1rem;
-  }
-}
-
 .ant-page {
   max-width: var(--max-width-body);
 }
@@ -133,6 +127,7 @@ form > button {
 .ant-result {
   display: flex;
   flex-flow: wrap;
+  margin-bottom: 0;
 }
 
 .ant-card {
@@ -155,10 +150,24 @@ form > button {
   padding: 0.5em 1em;
   height: var(--ant-desc-height);
   border-top: 1px solid rgb(182, 182, 182);
+  font-size: var(--ant-font-size);
 }
 
 .ant-name {
   font-weight: 600;
+}
+
+@media (min-width: 29em) {
+  :root {
+    --search-box-width: 60%;
+    --padding-input: 1em 2em;
+    font-size: 1.125em;
+    --ant-font-size: 0.9rem;
+  }
+
+  form > button {
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 42em) {
@@ -168,7 +177,7 @@ form > button {
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   :root {
     --ant-img-height: 70%;
     --ant-desc-height: 30%;
@@ -179,17 +188,20 @@ form > button {
   }
 }
 
-@media (min-width: 60em) {
+/* @media (min-width: 60em) {
   :root {
     --ant-card-flex-basis: 22.5%;
     --ant-card-max-width: 22.5%;
     --ant-card-margin: calc(10% / 8);
     --ant-card-height: 31vw;
   }
-}
+} */
 
 @media (min-width: 67.5em) {
   :root {
+    --ant-card-flex-basis: 22.5%;
+    --ant-card-max-width: 22.5%;
+    --ant-card-margin: calc(10% / 8);
     --ant-card-height: calc(67.5em / 3.6);
   }
 }
@@ -197,4 +209,21 @@ form > button {
 .species-name {
   font-size: 1.5rem;
   text-align: center;
+}
+
+.result-footer {
+  text-align: right;
+  padding: 0 1em;
+  margin-bottom: 2em;
+  font-size: 0.85rem;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.ant-page > h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5em;
 }

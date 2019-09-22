@@ -31,14 +31,16 @@ const Search = () => {
     <main>
       <section className="hero">
         <img src={logo} alt="logo" />
-        <p>Search ants species by country.</p>
+        <p>Search ants species by country (GBIF AntWeb dataset)</p>
       </section>
 
       <section className="search">
         <form
           onSubmit={e => {
             e.preventDefault();
-            navigate("/results", { state: { country: country.isoCode } });
+            navigate("/results", {
+              state: { country: country }
+            });
           }}
         >
           <datalist id="country">
