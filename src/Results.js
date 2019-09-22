@@ -15,17 +15,19 @@ const Results = props => {
       });
   }, [props.location.state.country]);
 
+  const filterMedia = media => {
+    const mediaHead = media.filter(item => item.identifier.includes("h_1"));
+    return mediaHead.length != 0
+      ? mediaHead[0].identifier.replace("high", "thumbview")
+      : "";
+  };
+
   return (
     <main className="ant-page">
       <section className="ant-result">
         {species.map(({ key, scientificName, country, media }) => (
           <div className="ant-card" key={key}>
-            <img
-              src={
-                media ? media[1].identifier.replace("high", "thumbview") : ""
-              }
-              alt={scientificName}
-            />
+            <img src={media ? filterMedia(media) : ""} alt={scientificName} />
             <div className="ant-description">
               <p className="ant-name">{scientificName}</p>
               <p>{country}</p>
