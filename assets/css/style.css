@@ -154,6 +154,7 @@ form > button {
 .ant-description {
   padding: 0.5em 1em;
   height: var(--ant-desc-height);
+  border-top: 1px solid rgb(182, 182, 182);
 }
 
 .ant-name {
