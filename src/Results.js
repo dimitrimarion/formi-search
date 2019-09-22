@@ -11,31 +11,7 @@ const Results = props => {
       .then(data => {
         const { results } = data;
         console.log(results);
-
-        const antsData = results.map(
-          ({ key, scientificName, media, country }) => ({
-            key,
-            scientificName,
-            media,
-            country
-          })
-        );
-
-        console.log(antsData);
-
-        // Remove results with same species name
-        const uniqueSpecies = antsData.reduce((unique, item) => {
-          if (!unique.length) {
-            return [item];
-          }
-          const { scientificName: uniqueName } = unique[unique.length - 1];
-          const { scientificName: itemName } = item;
-
-          return uniqueName === itemName ? unique : [...unique, item];
-        }, []);
-
-        console.log(uniqueSpecies);
-        setSpecies(uniqueSpecies);
+        setSpecies(results);
       });
   }, [props.location.state.country]);
 
