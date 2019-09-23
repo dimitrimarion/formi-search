@@ -12,7 +12,7 @@ const Results = props => {
     setActivepage(props.pageId);
   }, [props.pageId]);
 
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState((props.pageId - 1) * LIMIT);
   useEffect(() => {
     console.log("setOffset");
     setOffset((props.pageId - 1) * LIMIT);
