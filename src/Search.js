@@ -38,7 +38,7 @@ const Search = () => {
         <form
           onSubmit={e => {
             e.preventDefault();
-            navigate("/results", {
+            navigate(`/results/${country.isoCode}/page/1`, {
               state: { country: country }
             });
           }}

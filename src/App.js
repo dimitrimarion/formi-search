@@ -33,7 +33,7 @@ const App = () => {
 
       <Router>
         <Search path="/" />
-        <Results path="/results" />
+        <Results path="results/:country/page/:pageId" />
       </Router>
     </div>
   );
