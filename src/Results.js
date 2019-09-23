@@ -6,7 +6,12 @@ import Ants from "./Ants";
 const Results = props => {
   const LIMIT = 16;
 
-  const [activepage, setActivepage] = useState(1);
+  const [activepage, setActivepage] = useState(0);
+  useEffect(() => {
+    console.log(props.pageId);
+    setActivepage(props.pageId);
+  }, [props.pageId]);
+
   const [offset, setOffset] = useState(0);
   useEffect(() => {
     console.log("setOffset");
@@ -51,7 +56,7 @@ const Results = props => {
     return (
       <div>
         <main className="ant-page">
-          <h1>
+          <h1 className="title">
             {speciCount} specimens in {props.location.state.country.name}.
           </h1>
           <Ants species={species} />

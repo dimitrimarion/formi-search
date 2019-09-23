@@ -11,15 +11,26 @@ const Ants = ({ species }) => {
   };
   return (
     <section className="ant-result">
-      {species.map(({ key, species, scientificName, country, media }) => (
-        <AntCard
-          key={key}
-          species={species}
-          scientificName={scientificName}
-          country={country}
-          media={media ? filterMedia(media) : antImg}
-        />
-      ))}
+      {species.map(
+        ({
+          key: id,
+          species,
+          scientificName,
+          country,
+          media,
+          catalogNumber
+        }) => (
+          <AntCard
+            key={id}
+            id={id}
+            species={species}
+            scientificName={scientificName}
+            country={country}
+            media={media ? filterMedia(media) : antImg}
+            catalogNumber={catalogNumber}
+          />
+        )
+      )}
     </section>
   );
 };

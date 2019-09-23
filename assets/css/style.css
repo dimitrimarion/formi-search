@@ -131,6 +131,14 @@ form > button {
 }
 
 .ant-card {
+  height: var(--ant-card-height);
+}
+
+.ant-card-link {
+  display: block;
+}
+
+.ant-card-link {
   box-shadow: 0px 0px 3px 3px rgb(182, 182, 182);
   border-radius: 0.2em;
   margin: 0 var(--ant-card-margin) 2em var(--ant-card-margin);
@@ -183,6 +191,19 @@ form > button {
   border-radius: 0.2em;
   text-decoration: none;
   background-color: white;
+}
+
+.list-bold {
+  font-weight: 600;
+}
+
+.detailsList > li {
+  margin-bottom: 1em;
+}
+
+.detailsList > li > a {
+  color: #268bd2;
+  text-decoration: underline;
 }
 
 @media (min-width: 29em) {
@@ -250,7 +271,7 @@ form > button {
   text-decoration: underline;
 }
 
-.ant-page > h1 {
+.title {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1.5em;

@@ -4,6 +4,7 @@ import { Router, Link } from "@reach/router";
 import logo from "../assets/img/logo100x100.png";
 import Search from "./Search";
 import Results from "./Results";
+import Details from "./Details";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
       <Router>
         <Search path="/" />
         <Results path="results/:country/page/:pageId" />
+        <Details path="details/:specId" />
       </Router>
     </div>
   );
