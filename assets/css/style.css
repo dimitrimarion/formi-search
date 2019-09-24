@@ -95,6 +95,13 @@ form {
   align-items: center;
 }
 
+input,
+textarea {
+  border: none;
+  border-radius: 0.2em;
+  box-shadow: 0 0 0.3em var(--box-shadow);
+}
+
 form > input {
   width: var(--search-box-width);
   margin-bottom: 2em;
@@ -109,7 +116,7 @@ form input::placeholder {
   color: rgb(148, 148, 148);
 }
 
-form > button {
+form button {
   background-color: var(--button-color);
   border: none;
   padding: var(--padding-button);
@@ -218,6 +225,35 @@ form > button {
 .detailsList > li > a {
   color: #268bd2;
   text-decoration: underline;
+}
+
+.contactForm {
+  flex-flow: row wrap;
+  max-width: 25em;
+  padding: 0 1em;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.contactForm p {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.contactForm label {
+  margin-bottom: 0.2em;
+}
+
+.contactForm input {
+  height: 2.5em;
+  padding: 1em;
+}
+
+.contactForm textarea {
+  height: 15em;
+  padding: 1em;
 }
 
 @media (min-width: 29em) {

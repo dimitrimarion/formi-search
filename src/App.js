@@ -5,6 +5,7 @@ import logo from "../assets/img/logo100x100.png";
 import Search from "./Search";
 import Results from "./Results";
 import Details from "./Details";
+import Contact from "./Contact";
 
 const App = () => {
   return (
@@ -19,12 +20,7 @@ const App = () => {
               </Link>
             </li>
             <li>
-              <Link to="/" className="nav-menu-link">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="nav-menu-link">
+              <Link to="/contact" className="nav-menu-link">
                 Contact
               </Link>
             </li>
@@ -36,6 +32,7 @@ const App = () => {
         <Search path="/" />
         <Results path="results/:country/:speciesName/page/:pageId" />
         <Details path="details/:specId" />
+        <Contact path="contact" />
       </Router>
     </div>
   );
