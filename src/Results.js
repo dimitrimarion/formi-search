@@ -5,6 +5,8 @@ import Ants from "./Ants";
 
 const Results = props => {
   const LIMIT = 16;
+  const GBIF_API =
+    "https://api.gbif.org/v1/occurrence/search/?datasetKey=13b70480-bd69-11dd-b15f-b8a03c50a862&familyKey=4342";
 
   const [activepage, setActivepage] = useState(0);
   useEffect(() => {
@@ -18,31 +20,46 @@ const Results = props => {
     setOffset((props.pageId - 1) * LIMIT);
   }, [props.pageId]);
 
-  const URL = `https://api.gbif.org/v1/occurrence/search/?datasetKey=13b70480-bd69-11dd-b15f-b8a03c50a862&familyKey=4342&limit=${LIMIT}&offset=${offset}&country=`;
+  const [speciesSearch, setSpeciesSearch] = useState("");
+  useEffect(() => {
+    setSpeciesSearch(props.speciesName === "all" ? "" : props.speciesName);
+  }, [props.speciesName]);
+
+  const [url, setUrl] = useState(GBIF_API);
+  /*  useEffect(() => {
+    setUrl(
+      `${GBIF_API}`
+    );
+  }, [offset, props.country, props.speciesName]); */
 
   const [species, setSpecies] = useState([]);
   const [speciCount, setSpeciCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${URL}${props.country}`)
+    fetch(
+      props.speciesName == "all"
+        ? `${url}&limit=${LIMIT}&offset=${offset}&country=${props.country}`
+        : `${url}&limit=${LIMIT}&offset=${offset}&country=${props.country}&scientificName=${props.speciesName}`
+    )
       .then(response => response.json())
       .then(data => {
         console.log("useEffect Species");
         console.log(data);
+        console.log("*** URL:" + url);
         const { results } = data;
         const { count } = data;
         console.log(results);
 
         setSpecies(results);
-        setSpeciCount(count);
+        setSpeciCount(results.length == 0 ? 0 : count);
         setLoading(false);
       });
     return () => {
       console.log("cleanup");
       setLoading(true);
     };
-  }, [URL, props.country]);
+  }, [url, props.country, props.speciesName, offset]);
 
   const [pageCount, setPageCount] = useState(0);
   useEffect(() => {
@@ -59,6 +76,26 @@ const Results = props => {
           <h1 className="title">
             {speciCount} specimens in {props.location.state.country.name}.
           </h1>
+          <form
+            className="species-form"
+            onSubmit={e => {
+              e.preventDefault();
+              navigate(`/results/${props.country}/${speciesSearch}/page/1`, {
+                state: { country: props.location.state.country }
+              });
+              /* setUrl(
+                `${GBIF_API}&limit=${LIMIT}&offset=${offset}&country=${props.country}&scientificName=${speciesSearch}`
+              ); */
+            }}
+          >
+            <input
+              id="species"
+              value={speciesSearch}
+              placeholder="Filter by species name"
+              onChange={e => setSpeciesSearch(e.target.value)}
+            />
+            <button>Submit</button>
+          </form>
           <Ants species={species} />
           <nav className="nav-pagination">
             <ReactPaginate
@@ -72,9 +109,13 @@ const Results = props => {
               onPageChange={({ selected }) => {
                 console.log("selected " + selected);
                 setActivepage(selected + 1);
-                navigate(`/results/${props.country}/page/${selected + 1}`, {
-                  state: { country: props.location.state.country }
-                });
+                navigate(
+                  `/results/${props.country}/${speciesSearch}/page/${selected +
+                    1}`,
+                  {
+                    state: { country: props.location.state.country }
+                  }
+                );
               }}
               forcePage={activepage - 1}
             />

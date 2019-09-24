@@ -5,6 +5,7 @@
   --button-color: #107896;
   --box-shadow: rgb(151, 151, 151);
   --search-box-width: 80%;
+  --search-species-box-width: 60%;
   --padding-button: 0.75em 2em;
   --padding-input: 0.75em 1.5em;
   --hero-img-width: 100%;
@@ -105,7 +106,7 @@ form > input {
 }
 
 form input::placeholder {
-  color: rgb(192, 191, 191);
+  color: rgb(148, 148, 148);
 }
 
 form > button {
@@ -122,6 +123,19 @@ form > button {
 
 .ant-page {
   max-width: var(--max-width-body);
+}
+
+.species-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 2.5em;
+}
+
+.species-form > input {
+  margin-bottom: 0;
+  width: var(--search-species-box-width);
+  margin-right: 1em;
 }
 
 .ant-result {
@@ -234,6 +248,7 @@ form > button {
     --ant-card-max-width: 30%;
     --ant-card-height: 40vw;
     --ant-card-margin: calc(10% / 6);
+    --search-species-box-width: 40%;
   }
 }
 
