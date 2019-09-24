@@ -110,8 +110,9 @@ const Results = props => {
                 console.log("selected " + selected);
                 setActivepage(selected + 1);
                 navigate(
-                  `/results/${props.country}/${speciesSearch}/page/${selected +
-                    1}`,
+                  `/results/${props.country}/${
+                    props.speciesName
+                  }/page/${selected + 1}`,
                   {
                     state: { country: props.location.state.country }
                   }
