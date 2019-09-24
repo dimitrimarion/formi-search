@@ -233,6 +233,7 @@ form button {
   padding: 0 1em;
   margin: 0 auto;
   justify-content: center;
+  margin-bottom: 2em;
 }
 
 .contactForm p {
@@ -287,15 +288,6 @@ form button {
     --search-species-box-width: 40%;
   }
 }
-
-/* @media (min-width: 60em) {
-  :root {
-    --ant-card-flex-basis: 22.5%;
-    --ant-card-max-width: 22.5%;
-    --ant-card-margin: calc(10% / 8);
-    --ant-card-height: 31vw;
-  }
-} */
 
 @media (min-width: 67.5em) {
   :root {
