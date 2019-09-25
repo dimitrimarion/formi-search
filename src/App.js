@@ -6,6 +6,7 @@ import Search from "./Search";
 import Results from "./Results";
 import Details from "./Details";
 import Contact from "./Contact";
+import NotFound from "./NotFound";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
       </header>
 
       <Router>
+        <NotFound default />
         <Search path="/" />
         <Results path="results/:country/:speciesName/page/:pageId" />
         <Details path="details/:specId" />
