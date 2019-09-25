@@ -19,6 +19,8 @@ const Contact = () => {
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error));
+
+    e.preventDefault();
   };
 
   return (
