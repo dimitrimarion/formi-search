@@ -12,26 +12,21 @@ const Contact = () => {
   };
 
   const handleSubmit = e => {
-    fetch("/contact", {
+    fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", name, email, message })
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error));
-
-    e.preventDefault();
   };
 
   return (
     <main>
       <h1 className="title">Contact</h1>
       <form
-        name="contact"
-        method="post"
         className="contactForm"
         onSubmit={e => {
-          e.preventDefault();
           handleSubmit(e);
         }}
       >
