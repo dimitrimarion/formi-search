@@ -89,7 +89,7 @@ main {
   margin-bottom: 2em;
 }
 
-form {
+.search-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,9 +102,7 @@ textarea {
   box-shadow: 0 0 0.3em var(--box-shadow);
 }
 
-form > input {
-  width: var(--search-box-width);
-  margin-bottom: 2em;
+input {
   padding: var(--padding-input);
   border: none;
   border-radius: 0.2em;
@@ -112,11 +110,18 @@ form > input {
   background-color: rgb(250, 250, 250);
 }
 
-form input::placeholder {
+.search-form > input {
+  width: var(--search-box-width);
+  margin-bottom: 2em;
+}
+
+.search-form input::placeholder {
   color: rgb(148, 148, 148);
 }
 
-form button {
+.search-form button,
+.species-form button,
+.contactForm button {
   background-color: var(--button-color);
   border: none;
   padding: var(--padding-button);
@@ -250,6 +255,7 @@ form button {
 .contactForm input {
   height: 2.5em;
   padding: 1em;
+  background-color: white;
 }
 
 .contactForm textarea {
@@ -265,7 +271,9 @@ form button {
     --ant-font-size: 0.9rem;
   }
 
-  form > button {
+  .search-form > button,
+  .species-form button,
+  .contactForm button {
     font-size: 1rem;
   }
 }

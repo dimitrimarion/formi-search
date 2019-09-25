@@ -36,6 +36,7 @@ const Search = () => {
 
       <section className="search">
         <form
+          className="search-form"
           onSubmit={e => {
             e.preventDefault();
             navigate(`/results/${country.isoCode}/all/page/1`, {
